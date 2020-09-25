@@ -21,4 +21,13 @@ export class EstudiantesComponent implements OnInit {
     );
   }
 
+  delete(estudiante:Estudiante):void{
+    console.log("Hello form delete");
+    this.estudianteService.delete(estudiante.id).subscribe(
+      res=>this.estudianteService.getAll().subscribe(
+        response=>this.estudiantes=response
+      )
+    );
+  }
+
 }
